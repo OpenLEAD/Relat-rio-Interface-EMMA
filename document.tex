@@ -29,94 +29,71 @@
 
 
 
-\section{Objetivo}
+\section{Relatório de Usabilidade}
 
-Este relatório tem o objetivo de documentar o processo de pesquisa na áerea de
-Interfaces de Usuário do projeto EMMA. A primeira fase do projeto entre Março de
-2015 e Abril de 2016 prevê um estudo de viabilidade técnica para a construção de
-um robô que realizará manutenção em turbinas de bulbo nas Usinas de Jirau e
-Santo Antônio em Porto Velho (RO). O robô EMMA será dotado de um sistema
-operacional com uma interface gráfica que controlerá suas atividades.
+Este relatório tem o objetivo de documentar o processo de pesquisa para o desenvolvimento de software e
+interface de usuário do robô EMMA. O estudo irá abordar a funcionalidade necessária para o que o software
+em questão atenda aos requisitos funcionais e não funcionais do sistema que controlará o robô. A pesquisa
+da usabilidade será abordada sob a perspectiva da interação entre homem-máquina, traçando um paralelo 
+entre os usuários do sistema e as tarefas que serão executadas pelo robô.
 
-\section{Processo de Design}
+\section{Objetivos}
 
-A idéia de construir uma interface gráfica para usuários 
-técnicos e diretamente ligados ao desenvolvimento da mesma estabelece um desafio
-no que se refere ao design centrado no usuário (user centered design). A
-intenção é que a referência própria exista até certo ponto, mas em um processo
-de design centrado no usuário a objetiva-se que determinados arquétipos de
-usuários, traduzidos em personas, reúnam características que sejam capazes de
-justificar os aspectos utilizados no desenvolvimento. Partindo desse princípio o
-trabalho desenvolvido no projeto EMMA será dividido em três fases: Descoberta, Design e Desenvolvimento.
+O objetivo do projeto EMMA é o de criar uma metodologia para execução de manipulação industrial em ambientes
+confinados, reduzindo o risco humano da manutenção e o tempo de parada de máquinas. Essa solução se baseia 
+em produtos industriais já existentes para desenvolver uma metodologia que integre os mesmos no ambiente 
+confinado. 
+O robô EMMA será contituído de um manipulador mecânico Motoman MH12,
+uma base mecânica modeluar com três graus de liberdade, um sensor laser scanner FAROXXX e um computador 
+para visualizar a interface com usuário. Desta forma o software EMMA irá integrar todos os agentes da operação 
+e monitorar as tarefas de calibração, planejamento de trajetória e revestimento realizadas pelo robô.
 
+\section{Pesquisa de usuários}
+A pesquisa de usuário identifica todos os atores possíveis no contexto de uso do software 
+assim como coleta dados de possíveis usuários para aprender sobre suas características, 
+necessidades e preferências. Seu objtivo é estruturar casos de uso e elaborar arquétipos que
+sirvam como referência no modelo de arquitetura e nos requisitos do sistema.
+Os usuários do projeto EMMA são engenheiros envolvidos no desenvolvimento do projeto assim como 
+o time que receberá treinamento na Usina hidrelétrica de Jirau para executar a manutenção de turbinas. 
+Em virtude da especificidade de seus usuários e a fim evitar auto referência no desenvovimento do 
+sistema, foi feita uma pesquisa com um grupo de 12 engenheiros da área de software, mecânica e
+eletrônica para coletar informações e atribuir a um perfil de usuário as referências de construção
+do sistema. Através de formulários foram coletadas informações demográficas, comportamentais e 
+operacionais para criar uma narrativa que auxilia o entendimento do software criado a partir de 
+seus usuários.
 
- \section{Interface de Usuários}\label{sec::interface} 
-
-O robô EMMA prevê a construção de um software operacional que 
-controlará das atividades do robô através de uma interface gráfica com o
-usuário.
-O objetivo desta interface é o de facilitar o processo de manutenção e aplicação
-de hardcoating em turbinas através de um sistema conciso e objetivo. Para tanto
-o desenvolvimento desse software foi abordado de forma ágil e centrado no
-usuário, onde interações são necessárias ate que se chegue em resultados
-desejados.
-O processo de pesquisa e desenvolvimento desse software acontece em três fases :
-descoberta, design e suporte de desenvolvimento.
-
-\subsection{Descoberta}
-
-Durante a fase de descoberta a prioridade é entender os objetivos estratégicos
-do software que esta será desenvolvido. Em um primeito momento assimilar o
-escopo do projeto e definindo seus requerimentos funcionais e não funcionais. 
-Posteriormente aprender sobre os usuários alvo do produto, suas características
-e as tarefas que estes vão executar no software através de pesquisa e
-modelagem de usuários, além de uma análise detalhada de tarefas.
-
-\subsection{Pesquisa de usuários}
-A pesquisa de usuário tem como objetivo fornecer dados suficientes para que se
-crie perfis que englobem todos os possíveis atores envolvidos no
-processo. No caso usuários primários, secundários e até terciários que são
-agentes diretos no processo de manutenção e aplicação de hardcoating in Situ.
-De forma complementar é feita uma pesquisa com um grupo representativo
-destes usuários, engenheiros do laboratório e engeheiros na usina de Jirau que
-utilizarão o sistema com o intuito de aprender sobre suas características, necessidades
-e preferencias através de questionários e entrevistas.Esta informação e então
-utilizada para construir arquétipos de usuários que atuam como referência para
-tomada de decisões tanto na qrquitetura de informação quando no design de
-interfaces do projeto.
+\subsection {Persona}
 
 
-\paragraph{Análise de Tarefas}
-A análise de tarefas ocorre de forma simultânea a pesquisa de usuários, podendo
-ser aplicado a uma variedade de técnicas para identificar e compreender a estrutura, o fluxo, 
-e os atributos de tarefas. Análise de tarefas identifica as ações e processos cognitivos 
-necessários para um usuário para completar uma tarefa ou atingir um objetivo
-particular.Essa análise faz com que seja possível projetar e atribuir tarefas de
-forma adequada dentro do novo sistema
+\section{Tarefas do robô}
+O sistema EMMA executará três tarefas: calibração, planejamento de trajetória e metalização.
 
-Essa análise detalhada é feita para que se compreenda o fluxo de informação do
-software. O robô EMMA contém três atividades distintas:
+\subsection {Calibração}
+Através de um laser scan e sensores espalhados no ambiente do aro câmara é obtida uma nuvem de pontos, 
+isto é, uma representação tridimensional do espaço cartesiano, na qual cada distância medida pelos 
+sensores a partir de sua origem representa uma coordenada x y z. A identificação de cada conjunto, 
+na nuvem de pontos, é importante para que a posição e orientação de cada objeto de interesse seja 
+determinada e, assim a transformada do sistema de coordenadas entre cada objeto seja calculada. 
+Esses dados possibilitarão ou não um planejamento de trajetória. A etapa de calibração será efetuada 
+toda vez que o robô precisar ser posicionado ou reposicionado no ambiente do aro câmera.
 
+\subsubsection {Fluxograma Calibração}
 
+\subsection {Planejamento de Trajetória}
+Planejamento de trajetória define como o robô irá executar a aplicação de revestimento nas pás. 
+A partir das posições do robô em relação a pá são geradas trajetórias que o efetuador irá percorrer 
+para realizar o revestimento em toda a superfície da pá. Cada configuração do manipulador se relaciona 
+com uma lista de ângulos das juntas do robô. A aplicação de metalização é dividida em etapas, onde a 
+área da pá é particionada.  Para cada uma das etapas são geradas n configurações gerando assim uma matriz 
+de ângulo dessas juntas.
 
-\begin{itemize}
-  \item Calibração
-  \item Planejamento de Trajetória
-  \item Aplicação de Hardcoating
-\end{itemize}
+\subsubsection {Fluxograma Planejamento de Trajetória}
+
+\subsection {Metalização}
+
 
 \paragraph{Casos de Uso}
-Casos de Uso tem o objetivo de auxiliar a comunicação entre os
-analistas e o cliente.
-Um diagrama de Caso de Uso descreve um cenário que mostra as funcionalidades do sistema do ponto de vista do usuário. 
-O cliente deve ver no diagrama de Casos de Uso as principais funcionalidades de seu sistema.
 
-
-
-
-\subsubsection{Design}
-
-\subsubsection{Desenvolvimento}
 
 
 
