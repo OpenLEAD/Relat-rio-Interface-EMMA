@@ -50,14 +50,78 @@ justificar os aspectos utilizados no desenvolvimento. Partindo desse princípio 
 trabalho desenvolvido no projeto EMMA será dividido em três fases: Descoberta, Design e Desenvolvimento.
 
 
+ \section{Interface de Usuários}\label{sec::interface} 
+
+O robô EMMA prevê a construção de um software operacional que 
+controlará das atividades do robô através de uma interface gráfica com o
+usuário.
+O objetivo desta interface é o de facilitar o processo de manutenção e aplicação
+de hardcoating em turbinas através de um sistema conciso e objetivo. Para tanto
+o desenvolvimento desse software foi abordado de forma ágil e centrado no
+usuário, onde interações são necessárias ate que se chegue em resultados
+desejados.
+O processo de pesquisa e desenvolvimento desse software acontece em três fases :
+descoberta, design e suporte de desenvolvimento.
+
 \subsection{Descoberta}
 
-A fase de descoberta consiste em entender exatamente o que esta sendo construído
-e seus objetivos enquanto produtos. Em um primeiro momento 
+Durante a fase de descoberta a prioridade é entender os objetivos estratégicos
+do software que esta será desenvolvido. Em um primeito momento assimilar o
+escopo do projeto e definindo seus requerimentos funcionais e não funcionais. 
+Posteriormente aprender sobre os usuários alvo do produto, suas características
+e as tarefas que estes vão executar no software através de pesquisa e
+modelagem de usuários, além de uma análise detalhada de tarefas.
 
-\subsection{Design}
+\subsection{Pesquisa de usuários}
+A pesquisa de usuário tem como objetivo fornecer dados suficientes para que se
+crie perfis que englobem todos os possíveis atores envolvidos no
+processo. No caso usuários primários, secundários e até terciários que são
+agentes diretos no processo de manutenção e aplicação de hardcoating in Situ.
+De forma complementar é feita uma pesquisa com um grupo representativo
+destes usuários, engenheiros do laboratório e engeheiros na usina de Jirau que
+utilizarão o sistema com o intuito de aprender sobre suas características, necessidades
+e preferencias através de questionários e entrevistas.Esta informação e então
+utilizada para construir arquétipos de usuários que atuam como referência para
+tomada de decisões tanto na qrquitetura de informação quando no design de
+interfaces do projeto.
 
-\subsection{Desenvolvimento}
+
+\paragraph{Análise de Tarefas}
+A análise de tarefas ocorre de forma simultânea a pesquisa de usuários, podendo
+ser aplicado a uma variedade de técnicas para identificar e compreender a estrutura, o fluxo, 
+e os atributos de tarefas. Análise de tarefas identifica as ações e processos cognitivos 
+necessários para um usuário para completar uma tarefa ou atingir um objetivo
+particular.Essa análise faz com que seja possível projetar e atribuir tarefas de
+forma adequada dentro do novo sistema
+
+Essa análise detalhada é feita para que se compreenda o fluxo de informação do
+software. O robô EMMA contém três atividades distintas:
+
+
+
+\begin{itemize}
+  \item Calibração
+  \item Planejamento de Trajetória
+  \item Aplicação de Hardcoating
+\end{itemize}
+
+\paragraph{Casos de Uso}
+Casos de Uso tem o objetivo de auxiliar a comunicação entre os
+analistas e o cliente.
+Um diagrama de Caso de Uso descreve um cenário que mostra as funcionalidades do sistema do ponto de vista do usuário. 
+O cliente deve ver no diagrama de Casos de Uso as principais funcionalidades de seu sistema.
+
+
+
+
+\subsubsection{Design}
+
+\subsubsection{Desenvolvimento}
+
+
+
+
+
 
 
 \end{document}
