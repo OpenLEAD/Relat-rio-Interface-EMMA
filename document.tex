@@ -26,7 +26,7 @@
 \include{00_Frontpage}
 
 \tableofcontents
-
+ 
 
 
 \section{Relatório de Usabilidade}
@@ -61,28 +61,28 @@ Um modelo que define a interação humano-automação de forma mais detalhada é
 (Thomas, 2001 apud Gikkas, 2013) que leva em consideração não só os processos de interação, mas também elementos (subjetivos e concretos) que 
 interferem em cada uma das etapas. 
 
-O OODA LOOP (fig. 1) é um esquema com uma série de ações cognitivas e motorasrequeridas de um operador/usuário para tomar decisões e executá-las 
-durante a interação. Este esquema leva em consideração aspectos referentes ao usuário, como experiências prévias, aspectos culturais, informação 
+O OODA LOOP (fig.\ref{fig:ooda}) é um esquema com uma série de ações
+cognitivas e motorasrequeridas de um operador/usuário para tomar decisões e executá-las durante a interação. Este esquema leva em consideração aspectos referentes ao usuário, como experiências prévias, aspectos culturais, informação 
 dada ao usuário e de canais de atenção. A análise e consideração de todas essas variáveis torna-se essencial para que o usuário possa entender o 
 que se passa durante a ação de um de um sistema automatizado e assim agir corretamente diante de cada situação. Da mesma forma, sinaliza a 
 importância de estabelecer um perfil usuário baseado naqueles que usarão de forma direta ou indireta e também influenciarão em aspectos do projeto.
 
-\begin{figure}[htp]
+\begin{figure}[h!]
 \begin{center}
-  \includegraphics[width=figureWidth]{figs/imgs/oodaLoop.jpg}
-  \caption[labelInTOC]{figureCaption}
-  \label{figureLabel}
+  \includegraphics[width=\columnwidth]{figs/ooda_loop.png}
+  \caption{Esquema OODA Loop}
+  \label{fig:ooda}
 \end{center}
-\end{figure}
+\end{figure} 
  
 O esquema OODA LOOP também é aplicado para o funcionamento dos sistemas em si, levando em consideração as variáveis, cenários pré-determinados e 
 leituras dos sensores para tomar as suas decisões. Durante a comunicação entre os usuários e o sistema, os modelos das duas partes estão diretamente 
 interligados, uma vez que a falha de interpretação por parte dos sensores ou um feedback impreciso interfere diretamente nas ações do operador.
-Ao observar o modelo acima (fig. 2), pode-se perceber que fatores humanos subjetivos e culturais são de suma importância para o bom desempenho 
+Ao observar o modelo acima (fig.\ref{fig:ooda}), pode-se perceber que fatores humanos subjetivos e culturais são de suma importância para o bom desempenho 
 das tarefas envolvendo elementos automatizados - uma vez que a interpretação dos estados do sistema e do funcionamento do mesmo está em função das 
 experiências prévias do usuário, assim como antecedentes culturais relacionados à automatização. Diversos autores 
-(Parasuraman & Sinderman, 2011; DEGANI, 2003; Thomas apud Gikkas, 2013) afirmam que um dos principais fatores que influenciam a 
-interação Humano-Automatização são as experiências prévias dos usuários com este tipo de sistema. Na prática o modelo nos fornece elementos cognitivos 
+(Parasuraman \& Sinderman, 2011; DEGANI, 2003; Thomas apud Gikkas, 2013) afirmam
+que um dos principais fatores que influenciam a interação Humano-Automatização são as experiências prévias dos usuários com este tipo de sistema. Na prática o modelo nos fornece elementos cognitivos 
 (observação, orientação, decisão e ação) para compreender as escolhas do usuário a partir da leitura que o ambiente e seus dispositivos. Ademais, 
 nos fornece aspectos relevantes a serem considerados tanto no processo de envolvimento de usuários no projeto e consequentemente no design centrado 
 no usuário.
@@ -110,16 +110,173 @@ necessárias e as ferramentas para executar a tarefa.
 
 \subsection{Funções do Sistema}
 \begin {enumerate}
-  \item Análise das Pás: A função da tarefa de análise é analisar as informações dos sensores para determinar os desgastes mecânicos e as regiões que precisam de revestimento.
-  \item Alinhamento: Auxiliar o usuário a posicionar o robô de forma ótima, ou
-  seja, a posição na qual ele possui a maior cobertura para realizar o revestimento das áreas determinadas na análise revestimento.
-  \item Calibração: A função da tarefa de calibração é calcular e validar a
-  posição relativa entre o manipulador e a pá. Ou seja, se usuário montou o manipulador na posição correta estimada pelo alinhamento.
-  \item  Trajetória: A tarefa de trajetória tem como função calcular o movimento
-  que o manipulador precisa executar para realizar o revestimento.
-  \item Execução: Execução dos movimentos estimados na trajetória para executar
-  o revestimento.
+  \item \textbf{Análise das Pás:} A função da tarefa de análise é analisar as
+  informações dos sensores para determinar os desgastes mecânicos e as regiões que precisam de revestimento.
+  \item \textbf{Alinhamento:} Auxiliar o usuário a posicionar o robô de forma
+  ótima, ou seja, a posição na qual ele possui a maior cobertura para realizar o revestimento das áreas determinadas na análise revestimento.
+  \item \textbf {Calibração:} A função da tarefa de calibração é calcular e
+  validar a posição relativa entre o manipulador e a pá. Ou seja, se usuário montou o manipulador na posição correta estimada pelo alinhamento.
+  \item \textbf {Trajetória:} A tarefa de trajetória tem como função calcular o
+  movimento que o manipulador precisa executar para realizar o revestimento.
+  \item \textbf {Execução:} Execução dos movimentos estimados na trajetória para
+  executar o revestimento.
 \end{enumerate}
+
+\subsection{Componentes do Sistema}
+A solução EMMA é formada de partes distintas:
+\begin {enumerate}
+	\item um manipulador robótico
+	\item um scanner laser 3D
+	\item uma base mecânica com trilho
+	\item uma pistola de coating
+	\item medidor de distância a laser
+	\item software de interface e controle.
+\end {enumerate} 
+
+\subsection {Ambiente do Sistema}
+O ambiente onde a operação de metalização ocorre é um ambiente confinado, o circuito hidráulico onde as turbinas, e consequentemente as pás, se encontram. 
+Este ambiente impõe restrições que forma que determinantes na escolha de componentes e planejamento da solução.
+
+\subsection {Utilização do Sistema}
+\begin {enumerate}
+  \item O usuário acessa o circuito hidráulico realiza medições com o laser scanner 3D e faz fotos das pás.
+  \item Essas informações são carregas para o software na etapa da análise.
+  \item O usuário analise estes dados e determina as áreas a serem revestidas.
+  \item Após analisado, o software calcula o alinhamento ótimo do manipulador
+para acessar essas áreas.
+  \item O instala o trilho e a base, posicionando o manipulador de acordo com o
+resultado do alinhamento.
+  \item O usuário utiliza novamente o laser scanner 3D medindo as posições do
+manipulador e da pá.
+  \item O usuário carrega estes dados ao software que calcula a posição relativa
+  entre o manipulador e a pá (Calibração).
+  \item Está calibração é validada através de movimentos do manipulador com
+  malha de controle fechada usando o medidor de distância laser.
+  \item Uma vez calibrado o software calcula as trajetórias que serão feitas
+  para realizar o revestimento das áreas desejadas.
+  \item O usuário monitora se este movimento e as forças e velocidade geradas no
+  mesmo estão de acordo funcionamento esperado.
+\end{enumerate}
+
+O usuário manda executar estas trajetórias, realizando assim o revestimento. 
+
+\subsection {Diagramas de Caracterização do Sistema}
+A caracterização do sistema acontece para que se determine com clareza as
+funcionalidades de cada tarefa do sistema. O sistema alvo situa-se numa posição serial e recebe entradas de 
+uma sistema que lhe é anterior - o sistema alimentador - e, por sua vez, produz saídas para um sistema que 
+lhe é posterior - o sistema ulterior. As entradas são processadas pelo processo característico do sistema alvo.
+
+\begin{enumerate}
+	\item \textbf {Metas:} Determinam para que serve o sistema; quais os
+	requisitos, quais atributos o sistema de ter ou pertencer ao sistema para que sua meta seja atingida.
+	\item \textbf {Ambiente do Sistema:} define o ambiente do sistema, tudo que
+	esta fora do sistema alvo, do qual não se tem controle porém que o influencia.
+	\item \textbf {Restrições:} define coações fixas que que estão no ambiente do
+	sistema e criam obstáculos para a implementação dos requisitos.
+	\item \textbf {Resultados:} que explicam falhas ou desvios do sistema:
+	acidentes, produtos defeituosos, refugos e poluição.
+\end{enumerate}
+
+\subsubsection {Análise}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{figs/caracterizacao_analise.jpg}
+  \caption{Caracterização da função de análise.}
+  \label{fig:caracterização análise}
+\end{center}
+\end{figure} 
+
+
+\subsubsection {Calibração}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{figs/caracterizacao_calibracao.jpg}
+  \caption{Caracterização da função de calibração.}
+  \label{fig:caracterização calibração}
+\end{center}
+\end{figure} 
+
+\subsubsection {Validação}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{figs/caracterizacao_validacao.jpg}
+  \caption{Caracterização da função de validação.}
+  \label{fig:caracterização validação}
+\end{center}
+\end{figure} 
+
+\subsubsection {Trajetória}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{figs/caracterizacao_trajetoria.jpg}
+  \caption{Caracterização da função de trajetória.}
+  \label{fig:caracterização trajetória}
+\end{center}
+\end{figure} 
+
+\subsubsection {Execução}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{figs/caracterizacao_execucao.jpg}
+  \caption{Caracterização da função de execução.}
+  \label{fig:caracterização execução}
+\end{center}
+\end{figure} 
+
+
+\section {Modelo Conceitual de Interface Gráfica}
+
+\subsection {Esqueleto do Sistema}
+O planejamento da interface gráfica tem início em um desenho básico, chamado
+esqueleto, um esqueleto que demonstra de forma direta a arquitetura de como a
+interface do software EMMA vai ser visualizada.
+
+\subsection {Desenhos de Interface}
+
+\subsubsection {Análise}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=.95\columnwidth]{figs/Analise.jpg}
+  \caption{Modelo conceitual de interface de usuário para função de análise.}
+  \label{fig:Interface de usuário para função de análise.}
+\end{center}
+\end{figure} 
+
+\subsubsection {Calibração}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=.95\columnwidth]{figs/Calibracao.jpg}
+  \caption{Modelo conceitual de interface de usuário para função de calibração.}
+  \label{fig:Interface de usuário para função de calibração.}
+\end{center}
+\end{figure} 
+
+\subsubsection {Validação}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=.95\columnwidth]{figs/Validacao.jpg}
+  \caption{Modelo conceitual de interface de usuário função de validação.}
+  \label{fig:Interface de usuário para função de validação.}
+\end{center}
+\end{figure} 
+
+\subsubsection {Trajetória}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\columnwidth]{figs/Trajetoria.jpg}
+  \caption{Modelo conceitual de interface de usuário função de trajetória.}
+  \label{fig:Interface de usuário para função de trajetória.}
+\end{center}
+\end{figure} 
 
 
 \end{document}
