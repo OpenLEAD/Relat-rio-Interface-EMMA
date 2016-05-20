@@ -69,13 +69,12 @@ importância de estabelecer um perfil usuário baseado naqueles que usarão de f
 
 \begin{figure}[htp]
 \begin{center}
-  \includegraphics[width=figureWidth]{oodaLoop.jpg}
+  \includegraphics[width=figureWidth]{figs/imgs/oodaLoop.jpg}
   \caption[labelInTOC]{figureCaption}
   \label{figureLabel}
 \end{center}
 \end{figure}
  
-
 O esquema OODA LOOP também é aplicado para o funcionamento dos sistemas em si, levando em consideração as variáveis, cenários pré-determinados e 
 leituras dos sensores para tomar as suas decisões. Durante a comunicação entre os usuários e o sistema, os modelos das duas partes estão diretamente 
 interligados, uma vez que a falha de interpretação por parte dos sensores ou um feedback impreciso interfere diretamente nas ações do operador.
@@ -109,8 +108,18 @@ necessárias e as ferramentas para executar a tarefa.
   \item Executar o revestimento.
 \end{enumerate}
 
-
-
+\subsection{Funções do Sistema}
+\begin {enumerate}
+  \item Análise das Pás: A função da tarefa de análise é analisar as informações dos sensores para determinar os desgastes mecânicos e as regiões que precisam de revestimento.
+  \item Alinhamento: Auxiliar o usuário a posicionar o robô de forma ótima, ou
+  seja, a posição na qual ele possui a maior cobertura para realizar o revestimento das áreas determinadas na análise revestimento.
+  \item Calibração: A função da tarefa de calibração é calcular e validar a
+  posição relativa entre o manipulador e a pá. Ou seja, se usuário montou o manipulador na posição correta estimada pelo alinhamento.
+  \item  Trajetória: A tarefa de trajetória tem como função calcular o movimento
+  que o manipulador precisa executar para realizar o revestimento.
+  \item Execução: Execução dos movimentos estimados na trajetória para executar
+  o revestimento.
+\end{enumerate}
 
 
 \end{document}
