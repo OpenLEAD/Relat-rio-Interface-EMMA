@@ -31,71 +31,83 @@
 
 \section{Relatório de Usabilidade}
 
-Este relatório tem o objetivo de documentar o processo de pesquisa para o desenvolvimento de software e
-interface de usuário do robô EMMA. O estudo irá abordar a funcionalidade necessária para o que o software
-em questão atenda aos requisitos funcionais e não funcionais do sistema que controlará o robô. A pesquisa
-da usabilidade será abordada sob a perspectiva da interação entre homem-máquina, traçando um paralelo 
-entre os usuários do sistema e as tarefas que serão executadas pelo robô.
-
-\section{Objetivos}
-
-O objetivo do projeto EMMA é o de criar uma metodologia para execução de manipulação industrial em ambientes
-confinados, reduzindo o risco humano da manutenção e o tempo de parada de máquinas. Essa solução se baseia 
-em produtos industriais já existentes para desenvolver uma metodologia que integre os mesmos no ambiente 
-confinado. 
-O robô EMMA será contituído de um manipulador mecânico Motoman MH12,
-uma base mecânica modeluar com três graus de liberdade, um sensor laser scanner FAROXXX e um computador 
-para visualizar a interface com usuário. Desta forma o software EMMA irá integrar todos os agentes da operação 
-e monitorar as tarefas de calibração, planejamento de trajetória e revestimento realizadas pelo robô.
-
-\section{Pesquisa de usuários}
-A pesquisa de usuário identifica todos os atores possíveis no contexto de uso do software 
-assim como coleta dados de possíveis usuários para aprender sobre suas características, 
-necessidades e preferências. Seu objtivo é estruturar casos de uso e elaborar arquétipos que
-sirvam como referência no modelo de arquitetura e nos requisitos do sistema.
-Os usuários do projeto EMMA são engenheiros envolvidos no desenvolvimento do projeto assim como 
-o time que receberá treinamento na Usina hidrelétrica de Jirau para executar a manutenção de turbinas. 
-Em virtude da especificidade de seus usuários e a fim evitar auto referência no desenvovimento do 
-sistema, foi feita uma pesquisa com um grupo de 12 engenheiros da área de software, mecânica e
-eletrônica para coletar informações e atribuir a um perfil de usuário as referências de construção
-do sistema. Através de formulários foram coletadas informações demográficas, comportamentais e 
-operacionais para criar uma narrativa que auxilia o entendimento do software criado a partir de 
-seus usuários.
-
-\subsection {Persona}
+O Robô EMMA é uma solução para o processo de metalização in situ, isto é, o revestimento de pás no ambiente de turbina, 
+diminuindo o tempo de manutenção e, consequentemente, de máquina parada. Esta pesquisa é divida em duas partes; a viabilidade 
+técnica e execução. Como parte da viabilidade técnica, a pesquisa de interface de usuários do projeto EMMA propõe diretrizes 
+para a elaboração da interface gráfica do sistema de controle do Robô EMMA. Este Relatório aborda os aspectos técnicos que 
+dão embasamento para o design de interfaces do sistema e a caracterização de suas funcionalidades, assim como fundamentos 
+teóricos que das interações entre homem e máquina.
 
 
-\section{Tarefas do robô}
-O sistema EMMA executará três tarefas: calibração, planejamento de trajetória e metalização.
+\section{Objetivo}
 
-\subsection {Calibração}
-Através de um laser scan e sensores espalhados no ambiente do aro câmara é obtida uma nuvem de pontos, 
-isto é, uma representação tridimensional do espaço cartesiano, na qual cada distância medida pelos 
-sensores a partir de sua origem representa uma coordenada x y z. A identificação de cada conjunto, 
-na nuvem de pontos, é importante para que a posição e orientação de cada objeto de interesse seja 
-determinada e, assim a transformada do sistema de coordenadas entre cada objeto seja calculada. 
-Esses dados possibilitarão ou não um planejamento de trajetória. A etapa de calibração será efetuada 
-toda vez que o robô precisar ser posicionado ou reposicionado no ambiente do aro câmera.
+O objetivo deste relatório é fundamentar os aspectos técnicos e teóricos que envolvem a interface de usuário do sistema de 
+controle do robô EMMA com os seguintes tópicos: modelo de Interação humano-automação, modelagem do sistema, modelos conceitual 
+de interface de usuários.
 
-\subsubsection {Fluxograma Calibração}
+\section{Modelo de Interação}
 
-\subsection {Planejamento de Trajetória}
-Planejamento de trajetória define como o robô irá executar a aplicação de revestimento nas pás. 
-A partir das posições do robô em relação a pá são geradas trajetórias que o efetuador irá percorrer 
-para realizar o revestimento em toda a superfície da pá. Cada configuração do manipulador se relaciona 
-com uma lista de ângulos das juntas do robô. A aplicação de metalização é dividida em etapas, onde a 
-área da pá é particionada.  Para cada uma das etapas são geradas n configurações gerando assim uma matriz 
-de ângulo dessas juntas.
+Automação é um termo amplo, que pode ter muitos significados dependendo do
+contexto em que está inserido. Neste estudo, entende-se por automação a realização de tarefas e atividades com a ação de máquinas, sem a interferência direta do humano 
+no processo operacional. A interação humano-automação se dá em circunstâncias em que as pessoas podem: (1) especificar 
+para a automação a tarefa (através de computador de algum tipo), objetivos e restrições e trade-offs ou trocas entre os 
+objetivos e restrições; (2) controlar a automação para iniciar, parar ou modificar a tarefa automática de execução; e 
+(3) receber a partir da informação de automação, energia, objetos físicos, ou substâncias.
 
-\subsubsection {Fluxograma Planejamento de Trajetória}
+Desta forma os aspectos que permeiam a interação humano-automatização envolvem tanto o homem quanto a máquina numa alimentação mútua, 
+onde a idéia central é que o sistema fornece ao homem determinada informação, que a processa e realimenta o sistema com tal informação 
+transformada, ou seja de acordo com as necessidades de uso do sistema. 
+Um modelo que define a interação humano-automação de forma mais detalhada é chamado de OODA LOOP (Observation, Orientation, Decision, Action) 
+(Thomas, 2001 apud Gikkas, 2013) que leva em consideração não só os processos de interação, mas também elementos (subjetivos e concretos) que 
+interferem em cada uma das etapas. 
 
-\subsection {Metalização}
+O OODA LOOP (fig. 1) é um esquema com uma série de ações cognitivas e motorasrequeridas de um operador/usuário para tomar decisões e executá-las 
+durante a interação. Este esquema leva em consideração aspectos referentes ao usuário, como experiências prévias, aspectos culturais, informação 
+dada ao usuário e de canais de atenção. A análise e consideração de todas essas variáveis torna-se essencial para que o usuário possa entender o 
+que se passa durante a ação de um de um sistema automatizado e assim agir corretamente diante de cada situação. Da mesma forma, sinaliza a 
+importância de estabelecer um perfil usuário baseado naqueles que usarão de forma direta ou indireta e também influenciarão em aspectos do projeto.
+
+\begin{figure}[htp]
+\begin{center}
+  \includegraphics[width=figureWidth]{oodaLoop.jpg}
+  \caption[labelInTOC]{figureCaption}
+  \label{figureLabel}
+\end{center}
+\end{figure}
+ 
+
+O esquema OODA LOOP também é aplicado para o funcionamento dos sistemas em si, levando em consideração as variáveis, cenários pré-determinados e 
+leituras dos sensores para tomar as suas decisões. Durante a comunicação entre os usuários e o sistema, os modelos das duas partes estão diretamente 
+interligados, uma vez que a falha de interpretação por parte dos sensores ou um feedback impreciso interfere diretamente nas ações do operador.
+Ao observar o modelo acima (fig. 2), pode-se perceber que fatores humanos subjetivos e culturais são de suma importância para o bom desempenho 
+das tarefas envolvendo elementos automatizados - uma vez que a interpretação dos estados do sistema e do funcionamento do mesmo está em função das 
+experiências prévias do usuário, assim como antecedentes culturais relacionados à automatização. Diversos autores 
+(Parasuraman & Sinderman, 2011; DEGANI, 2003; Thomas apud Gikkas, 2013) afirmam que um dos principais fatores que influenciam a 
+interação Humano-Automatização são as experiências prévias dos usuários com este tipo de sistema. Na prática o modelo nos fornece elementos cognitivos 
+(observação, orientação, decisão e ação) para compreender as escolhas do usuário a partir da leitura que o ambiente e seus dispositivos. Ademais, 
+nos fornece aspectos relevantes a serem considerados tanto no processo de envolvimento de usuários no projeto e consequentemente no design centrado 
+no usuário.
 
 
-\paragraph{Casos de Uso}
+\section{Modelagem do Sistema}
+
+A meta principal do sistema de controle robótico EMMA é a de realizar metalização in situ, isto é, o revestimento de pás no ambiente de turbina, 
+diminuindo o tempo de manutenção e, consequentemente, de parada de máquinas.
 
 
+\subsection{Requistos do Sistema}
+É ter um manipulador robótica instalado no ambiente do circuito hidráulico onde o revestimento deve acontecer, incluindo os sensores para medições 
+necessárias e as ferramentas para executar a tarefa.
 
+\subsection{Problema}
+\begin {enumerate}
+  \item Determinar ás áreas a serem revestidas.
+  \item Instalar o manipulador na posição correta para realizar o revestimento.
+  \item Calcular e validar a posição instalada do manipulador.
+  \item Calcular como o manipulador deve se mover para realizar a o
+  revestimento.
+  \item Executar o revestimento.
+\end{enumerate}
 
 
 
