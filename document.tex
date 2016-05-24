@@ -70,7 +70,7 @@ importância de estabelecer um perfil usuário baseado naqueles que usarão de f
 
 \begin{figure}[h!]
 \begin{center}
-  \includegraphics[width=\columnwidth]{figs/ooda_loop.png}
+\fbox {\includegraphics[width=\columnwidth]{figs/ooda_loop.png}}
   \caption{Esquema OODA Loop}
   \label{fig:ooda}
 \end{center}
@@ -96,8 +96,8 @@ diminuindo o tempo de manutenção e, consequentemente, de parada de máquinas.
 
 
 \subsection{Requistos do Sistema}
-É ter um manipulador robótica instalado no ambiente do circuito hidráulico onde o revestimento deve acontecer, incluindo os sensores para medições 
-necessárias e as ferramentas para executar a tarefa.
+Um manipulador robótico instalado no ambiente do circuito hidráulico onde o
+revestimento deve acontecer, incluindo os sensores para medições necessárias e as ferramentas para executar a tarefa.
 
 \subsection{Problema}
 \begin {enumerate}
@@ -145,8 +145,8 @@ Este ambiente impõe restrições que forma que determinantes na escolha de comp
   \item O usuário analise estes dados e determina as áreas a serem revestidas.
   \item Após analisado, o software calcula o alinhamento ótimo do manipulador
 para acessar essas áreas.
-  \item O instala o trilho e a base, posicionando o manipulador de acordo com o
-resultado do alinhamento.
+  \item O usuário instala o trilho e a base, posicionando o manipulador de
+  acordo com o resultado do alinhamento.
   \item O usuário utiliza novamente o laser scanner 3D medindo as posições do
 manipulador e da pá.
   \item O usuário carrega estes dados ao software que calcula a posição relativa
@@ -157,9 +157,11 @@ manipulador e da pá.
   para realizar o revestimento das áreas desejadas.
   \item O usuário monitora se este movimento e as forças e velocidade geradas no
   mesmo estão de acordo funcionamento esperado.
+  \item O usuário manda executar estas trajetórias, realizando assim o
+  revestimento. 
 \end{enumerate}
 
-O usuário manda executar estas trajetórias, realizando assim o revestimento. 
+
 
 \subsection {Diagramas de Caracterização do Sistema}
 A caracterização do sistema acontece para que se determine com clareza as
@@ -168,14 +170,20 @@ uma sistema que lhe é anterior - o sistema alimentador - e, por sua vez, produz
 lhe é posterior - o sistema ulterior. As entradas são processadas pelo processo característico do sistema alvo.
 
 \begin{enumerate}
+	
+	\item \textbf {Sistema Alimentador:}Sistema que fornece as entradas para o
+	sistema alvo.
+	\item \textbf {Entradas:} Elementos que serão processados pelo sistema
+	(matéria-prima ou informações).
+	\item \textbf {Sistema-Alvo:} Sistema homem-tarefa-máquina analisado.
+	\item \textbf {Saídas:} Resultados do processo realizado pelo sistema-alvo.
+	\item \textbf {sistema Ulterior:} Sistema que recebe as sa'das do sistema-alvo.
+	\item \textbf {Requisitos:} O que o sistema deve ter para funcionar.
 	\item \textbf {Metas:} Determinam para que serve o sistema; quais os
-	requisitos, quais atributos o sistema de ter ou pertencer ao sistema para que sua meta seja atingida.
-	\item \textbf {Ambiente do Sistema:} define o ambiente do sistema, tudo que
-	esta fora do sistema alvo, do qual não se tem controle porém que o influencia.
+	requisitos, quais atributos o sistema de ter ou pertencer para que sua meta seja atingida.
 	\item \textbf {Restrições:} define coações fixas que que estão no ambiente do
 	sistema e criam obstáculos para a implementação dos requisitos.
-	\item \textbf {Resultados:} que explicam falhas ou desvios do sistema:
-	acidentes, produtos defeituosos, refugos e poluição.
+
 \end{enumerate}
 
 \subsubsection {Análise}
