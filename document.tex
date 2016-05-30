@@ -59,8 +59,8 @@ Desta forma os aspectos que permeiam a interação humano-automatização envolv
 onde a idéia central é que o sistema fornece ao homem determinada informação, que a processa e realimenta o sistema com tal informação 
 transformada, ou seja de acordo com as necessidades de uso do sistema. 
 Um modelo que define a interação humano-automação de forma mais detalhada é chamado de OODA LOOP (Observation, Orientation, Decision, Action) 
-(Thomas, 2001 apud Gikkas, 2013) que leva em consideração não só os processos de interação, mas também elementos (subjetivos e concretos) que 
-interferem em cada uma das etapas. 
+\cite{sheridan2005human} que leva em
+consideração não só os processos de interação, mas também elementos (subjetivos e concretos) que interferem em cada uma das etapas. 
 
 O OODA LOOP (fig.\ref{fig:ooda}) é um esquema com uma série de ações
 cognitivas e motorasrequeridas de um operador/usuário para tomar decisões e executá-las durante a interação. Este esquema leva em consideração aspectos referentes ao usuário, como experiências prévias, aspectos culturais, informação 
@@ -81,10 +81,9 @@ leituras dos sensores para tomar as suas decisões. Durante a comunicação entr
 interligados, uma vez que a falha de interpretação por parte dos sensores ou um feedback impreciso interfere diretamente nas ações do operador.
 Ao observar o modelo acima (fig.\ref{fig:ooda}), pode-se perceber que fatores humanos subjetivos e culturais são de suma importância para o bom desempenho 
 das tarefas envolvendo elementos automatizados - uma vez que a interpretação dos estados do sistema e do funcionamento do mesmo está em função das 
-experiências prévias do usuário, assim como antecedentes culturais relacionados à automatização. Diversos autores 
-(Parasuraman \& Sinderman, 2011; DEGANI, 2003; Thomas apud Gikkas, 2013) afirmam
-que um dos principais fatores que influenciam a interação Humano-Automatização são as experiências prévias dos usuários com este tipo de sistema. Na prática o modelo nos fornece elementos cognitivos 
-(observação, orientação, decisão e ação) para compreender as escolhas do usuário a partir da leitura que o ambiente e seus dispositivos. Ademais, 
+experiências prévias do usuário, assim como antecedentes culturais relacionados a automatização. Diversos autores 
+\cite{Parazuraman2008,degani2003analysis,sheridan2005human} afirmam que um dos
+principais fatores que influenciam a interação Humano-Automatização são as experiências prévias dos usuários com este tipo de sistema. Na prática o modelo nos fornece elementos cognitivos (observação, orientação, decisão e ação) para compreender as escolhas do usuário a partir da leitura que o ambiente e seus dispositivos. Ademais, 
 nos fornece aspectos relevantes a serem considerados tanto no processo de envolvimento de usuários no projeto e consequentemente no design centrado 
 no usuário.
 
@@ -113,7 +112,7 @@ revestimento deve acontecer, incluindo os sensores para medições necessárias 
 \begin {enumerate}
   \item \textbf{Análise das Pás:} A função da tarefa de análise é analisar as
   informações dos sensores para determinar os desgastes mecânicos e as regiões que precisam de revestimento.
-  \item \textbf{Alinhamento:} Auxiliar o usuário a posicionar o robô de forma
+  \item \textbf{ValidaçÃo:} Auxiliar o usuário a posicionar o robô de forma
   ótima, ou seja, a posição na qual ele possui a maior cobertura para realizar o revestimento das áreas determinadas na análise revestimento.
   \item \textbf {Calibração:} A função da tarefa de calibração é calcular e
   validar a posição relativa entre o manipulador e a pá. Ou seja, se usuário montou o manipulador na posição correta estimada pelo alinhamento.
@@ -177,7 +176,7 @@ lhe é posterior - o sistema ulterior. As entradas são processadas pelo process
 	(matéria-prima ou informações).
 	\item \textbf {Sistema-Alvo:} Sistema homem-tarefa-máquina analisado.
 	\item \textbf {Saídas:} Resultados do processo realizado pelo sistema-alvo.
-	\item \textbf {sistema Ulterior:} Sistema que recebe as sa'das do sistema-alvo.
+	\item \textbf {Sistema Ulterior:} Sistema que recebe as saídas do sistema-alvo.
 	\item \textbf {Requisitos:} O que o sistema deve ter para funcionar.
 	\item \textbf {Metas:} Determinam para que serve o sistema; quais os
 	requisitos, quais atributos o sistema de ter ou pertencer para que sua meta seja atingida.
@@ -229,8 +228,8 @@ lhe é posterior - o sistema ulterior. As entradas são processadas pelo process
 
 \subsubsection {Execução}
 
-\begin{figure}[H]
-\begin{center}
+\begin{figure}[H] 
+\begin{center} 
   \includegraphics[width=0.95\textwidth]{figs/caracterizacao_execucao.jpg}
   \caption{Caracterização da função de execução.}
   \label{fig:caracterizacao_execucao}
@@ -245,6 +244,21 @@ O planejamento da interface gráfica tem início em um desenho básico, chamado
 esqueleto, um esqueleto que demonstra de forma direta a arquitetura de como a
 interface do software EMMA vai ser visualizada.
 
+\begin{figure}[H]
+\begin{center}
+  \fbox{\includegraphics[width=0.95\textwidth]{figs/wireframe.png}}
+  \caption{Desenho do esqueleto do sistema.}
+  \label{fig:esqueleto_sistema}
+\end{center}
+\end{figure} 
+
+A idéia deste esqueleto é de representar no espaço definido para interface
+gráfica dentro da lógica de caracterizão do sistema. Desta forma relaciona
+diretamente entradas e saídas de informação, com as metas almejadas, e
+permitindo que o usuário visualize a informaçào necessária para dar
+prosseguimento a operação.
+
+
 \subsection {Desenhos de Interface}
 
 \subsubsection {Análise}
@@ -257,6 +271,40 @@ interface do software EMMA vai ser visualizada.
 \end{center}
 \end{figure} 
 
+A (fig.\ref{fig:Interface_analise}) mostra a interface gráfica para usuário da
+tarefa de análise, que tem como objetivo avaliar o desgaste mecânico de pás
+fornecendo um relatório para seu revestimento posterior. Assim a informação do laser scanner 3D
+fornece medidas do ambiente sob a forma de nuvem de pontos para que se tenha um
+detalhamento da pá analisada. Ademais, também é possível adicionar informação
+externa sob a forma de fotografia para dar mais detalhes e precisão a
+determinado desgaste mecânico.
+Assim, através do uso de ferramentas disponibilizadas na área destinada a meta
+do software, o usuário pode selecionar e visualizar áreas onde existem
+danos, fazendo anotações e descrevendo ações necessárias para a manutenção de
+determinada pá.
+
+\subsubsection {Alinhamento}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=.95\columnwidth]{figs/Validacao.jpg}
+  \caption{Modelo conceitual de interface de usuário função de validação.}
+  \label{fig:Interface_validacao}
+\end{center}
+\end{figure} 
+
+A (fig.\ref{fig:Interface_validacao}) mostra a interface gráfica para usuário
+da tarefa de alinhamento. A tarefa de alinhamento permite que se estime novas
+posições do manipulardor em relação a pá, permitindo que o robô
+seja posicionado de forma ótima. Ao reposicionar o robô na interface é possível
+recalcular sua posição, descobrindo onde o manipulador terá a maior cobertura
+para realizar o revestimento das áreas determinadas pela análise.
+Na interface se encontram ferramentas que permitem a movimnetação do robô em
+eixo determinado para o cálculo. Assim, o susário poderá reposicionar o robô de
+acordo, obtendo as informações necessárias a calibracão e consequentemente o
+cálculo de trajetórias.
+
+
 \subsubsection {Calibração}
 
 \begin{figure}[H]
@@ -267,15 +315,13 @@ interface do software EMMA vai ser visualizada.
 \end{center}
 \end{figure} 
 
-\subsubsection {Validação}
+A (fig.\ref{fig:Interface_calibracao}) mostra a interface gráfica para usuário
+da tarefa de calibração, que tem como objetivo mostrar a posição relativa do
+manipulador em relação a pá. Caso o erro seja maior que o limite determinado
+este valor e mostrado em vermelho, sinalizando novas medições o laser scanner
+para determinar posiçào que satisfaça o sistema e permita o calculo de
+trajetória.
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=.95\columnwidth]{figs/Validacao.jpg}
-  \caption{Modelo conceitual de interface de usuário função de validação.}
-  \label{fig:Interface_validacao}
-\end{center}
-\end{figure} 
 
 \subsubsection {Trajetória}
 
@@ -286,6 +332,17 @@ interface do software EMMA vai ser visualizada.
   \label{fig:Interface_trajetoria}
 \end{center}
 \end{figure} 
+
+A (fig.\ref{fig:Interface_trajetoria}) mostra a interface gráfica para usuário
+da tarefa de trajetória. O objetivo desta tarefa é a de determinar a região onde
+o manipulador pode atuar no revestimento. Desta forma o sistema recebe
+informações do cálculo de erro de transformada, ou seja, a posição relativa
+entre pá e manipulador para a partir destas distâncias calcular a área de
+atuação do manipulador que efetuará o revestimento.
+
+\bibliographystyle{unsrt}
+\bibliography{main} 
+
 
 
 \end{document}
