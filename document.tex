@@ -275,13 +275,14 @@ A (fig.\ref{fig:Interface_analise}) mostra a interface gráfica para usuário da
 tarefa de análise, que tem como objetivo avaliar o desgaste mecânico de pás
 fornecendo um relatório para seu revestimento posterior. Assim a informação do laser scanner 3D
 fornece medidas do ambiente sob a forma de nuvem de pontos para que se tenha um
-detalhamento da pá analisada. Ademais, também é possível adicionar informação
-externa sob a forma de fotografia para dar mais detalhes e precisão a
-determinado desgaste mecânico.
+detalhamento da pá analisada. 
+
+Ademais, também é possível adicionar informação externa sob a forma de
+fotografia para dar mais detalhes e precisão a determinado desgaste mecânico.
 Assim, através do uso de ferramentas disponibilizadas na área destinada a meta
-do software, o usuário pode selecionar e visualizar áreas onde existem
-danos, fazendo anotações e descrevendo ações necessárias para a manutenção de
-determinada pá.
+do software, o usuário pode selecionar áreas específicas da pá, pode visualizar
+áreas onde existem danos com mais ou menos prximidade, e também fazer
+anotações para descrever ações necessárias na manutenção de determinada pá. 
 
 \subsubsection {Alinhamento}
 
@@ -294,15 +295,20 @@ determinada pá.
 \end{figure} 
 
 A (fig.\ref{fig:Interface_validacao}) mostra a interface gráfica para usuário
-da tarefa de alinhamento. A tarefa de alinhamento permite que se estime novas
-posições do manipulardor em relação a pá, permitindo que o robô
+da tarefa de alinhamento. A tarefa de alinhamento tem o objetivo estimar
+novas posições do manipulardor em relação a pá, permitindo que o robô
 seja posicionado de forma ótima. Ao reposicionar o robô na interface é possível
 recalcular sua posição, descobrindo onde o manipulador terá a maior cobertura
 para realizar o revestimento das áreas determinadas pela análise.
-Na interface se encontram ferramentas que permitem a movimnetação do robô em
-eixo determinado para o cálculo. Assim, o susário poderá reposicionar o robô de
-acordo, obtendo as informações necessárias a calibracão e consequentemente o
-cálculo de trajetórias.
+
+Na interface de usuário ao lado esquerdo temos o menu de navegação indicando a
+tarefa em questão. Ao centro, na área de metas, vemos o manipulador e pá, sendo
+permitido o reposicionamento do manipulador para que para que o erro da
+transformada seja recalculado. A direita, na área de funcionalidades, podemos
+ver o valor do erro da transformada, que uma vez estipulado aciona o valor do 
+erro de validação. Na área destinada as saídas, as posições do manipulador em
+relaçàoa pá a medida que ele é movimentado.
+
 
 
 \subsubsection {Calibração}
@@ -317,11 +323,17 @@ cálculo de trajetórias.
 
 A (fig.\ref{fig:Interface_calibracao}) mostra a interface gráfica para usuário
 da tarefa de calibração, que tem como objetivo mostrar a posição relativa do
-manipulador em relação a pá. Caso o erro seja maior que o limite determinado
-este valor e mostrado em vermelho, sinalizando novas medições o laser scanner
-para determinar posiçào que satisfaça o sistema e permita o calculo de
-trajetória.
+manipulador em relação a pá. Nesta tarefa, o sistema mede as distâncias as entre
+os objetos da operação para que se possa obter o erro da transformada, o valor
+que determina se a trajetória do manipulador pode ser feita ou não. 
 
+Na interface ao lado esquerdo, temos a listagem de tarefas, sendo a tarefa em
+questão em destaque indicando sua utilização. Ao centro, na área de metas, vemos os
+objetos medidos; manipulador e pá. Ao lado direito, na área de funcionalidade, 
+vemos o erro da transformada, sendo possível sua validação ou não.
+Caso o erro seja maior que o limite determinado este valor e mostrado em
+vermelho, sinalizando novas medições necessárias. Abaixo, temos o
+gráfico de funcionamento do erro da transformada.
 
 \subsubsection {Trajetória}
 
@@ -337,8 +349,39 @@ A (fig.\ref{fig:Interface_trajetoria}) mostra a interface gráfica para usuário
 da tarefa de trajetória. O objetivo desta tarefa é a de determinar a região onde
 o manipulador pode atuar no revestimento. Desta forma o sistema recebe
 informações do cálculo de erro de transformada, ou seja, a posição relativa
+entre pá e manipulador para a partir destas distâncias para calcular a área de
+atuação do manipulador que efetuará o revestimento.
+
+Na interface ao lado esquerdo temos o menu de navegação, ao centro na área de
+metas vemos o manipulador e a pá com a indicação da trajetória a ser percorrida
+pelo manipulador. Abaixo na parte da saída podemos ver os gráficos de
+velocidade do manipulador, a velocidade de suas juntas e seu torque. 
+
+\subsubsection {Metalização}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=\columnwidth]{figs/Execucao.jpg}
+  \caption{Modelo conceitual de interface de usuário função de metalização.}
+  \label{fig:Interface_execucao}
+\end{center}
+\end{figure} 
+
+A (fig.\ref{fig:Interface_execucao}) mostra a interface gráfica para usuário
+da tarefa de metalização. O objetivo desta tarefa é a de determinar a região
+onde o manipulador pode atuar no revestimento. Desta forma o sistema recebe
+informações do cálculo de erro de transformada, ou seja, a posição relativa
 entre pá e manipulador para a partir destas distâncias calcular a área de
 atuação do manipulador que efetuará o revestimento.
+
+Na interface ao lado esquerdo temos o menu de navegação, ao centro na área de
+metas vemos simultaneamente a simulação, e a metalização em tempo real. A
+direita, na área de funcionalidades podemos ver o progresso de ambas que
+indica, além do botão para uma aeventualal intervençào da operação.
+Abaixo na parte da saída podemos ver os gráficos de velocidade do manipulador, a
+velocidade de suas juntas e seu torque para se ter certeza de que a operação
+ocorre de acordo com o planejado.
+
 
 \bibliographystyle{unsrt}
 \bibliography{main} 
